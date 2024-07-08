@@ -1,10 +1,16 @@
 import { BsCart2 } from "react-icons/bs";
 import NavBar from "../components/NavBar";
 import ProductsDisplay from "../components/ProductsDisplay";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
+
+    const location = useLocation();
+    const route = location.pathname;
+
     return ( 
         <div className="home">
+            
             {/* <NavBar /> */}
 
             <div className="home-sect-2 my-28">

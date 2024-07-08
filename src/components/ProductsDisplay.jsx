@@ -6,7 +6,7 @@ const ProductsDisplay = () => {
         <div className='products mt-24' id='shop'>
             <div>
                 <h2 className='text-4xl font-bold text-center'>Explore Our Products</h2>
-                <div className='flex gap-20 flex-wrap justify-start mt-16'>
+                <div className='flex gap-20 flex-wrap justify-between mt-16'>
                 {
                     products.map((product) => (
                         <div className='product bg-sky-100 w-fit'>
@@ -33,7 +33,7 @@ const ProductsDisplay = () => {
             
             <div className='new-arrivals-parent mt-24 pb-20'>
                 <h2 className='text-4xl font-bold text-center'>New Arrivals</h2>
-                <div className='new-arrivals flex gap-20 flex-wrap justify-start mt-8'>
+                <div className='new-arrivals flex gap-20 flex-wrap justify-between mt-8'>
                 {
                     newArrivals.map((product) => (
                         <div className='bg-sky-100 rounded-xl'>

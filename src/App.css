@@ -2,7 +2,10 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  /* background-image: linear-gradient(to bottom, #e6f7ff 0%, #fff 27%); */
+}
+
+div.blue-root {
+  background-image: linear-gradient(to bottom, #e6f7ff 0%, #fff 27%);
 }
 
 .navbar div ul a.active {
@@ -42,15 +45,24 @@ body {
   /* align-self: flex-start; */
 }
 
+div.products {
+  width: 90%;
+  margin: auto;
+}
+
 .hamburger-icon {
+  display: none;
+}
+
+.mobile-arrowhead {
   display: none;
 }
 
 @media (max-width: 768px) {
 
-  /* body {
+  body {
     overflow-x: hidden;
-  } */
+  }
 
   .footer-form {
     width: 300px;
@@ -193,5 +205,28 @@ body {
 
   div.checkout-main-2 div.order-summary {
     width: 100%;
-  }  
+  }
+  
+  .mobile-arrowhead {
+    display: block;
+    cursor: pointer;
+  }
+
+  div.company-details {
+    gap: 2rem;
+  }
+
+  div.company-details-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  div.company-details-content {
+    display: none;
+  }
+
+  div.company-details-content.mobile {
+    display: flex;
+  }
 }
