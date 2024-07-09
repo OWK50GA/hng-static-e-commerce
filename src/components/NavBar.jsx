@@ -45,7 +45,7 @@ const NavBar = () => {
                 </ul>
             </div>
 
-            <div className="bg-black text-white rounded-2xl w-fit items-center p-2 h-8 hidden md:flex">
+            <div className="bg-black text-white rounded-2xl w-fit items-center p-2 h-8 hidden md:hidden lg:flex">
                 <CiSearch className="flex justify-center ml-3"/>
                 <input 
                     type="text" 
