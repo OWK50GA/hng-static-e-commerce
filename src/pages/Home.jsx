@@ -2,6 +2,7 @@ import { BsCart2 } from "react-icons/bs";
 import NavBar from "../components/NavBar";
 import ProductsDisplay from "../components/ProductsDisplay";
 import { useLocation } from "react-router-dom";
+import product5 from './assets/headphones-with-minimalist-monochrome-background-cropped-removebg-preview.png'
 
 const Home = () => {
 
@@ -42,7 +43,7 @@ const Home = () => {
                     </div>
                     <div className="home-welcome-sect-2 flex items-start -mt-16 -ml-16">
                         <img 
-                        src="../assets/headphones-with-minimalist-monochrome-background-cropped-removebg-preview.png" 
+                        src={product5} 
                         className="headphone-img" 
                         alt=""
                         />
