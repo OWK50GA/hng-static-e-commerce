@@ -2,7 +2,7 @@ import { BsCart2 } from "react-icons/bs";
 import NavBar from "../components/NavBar";
 import ProductsDisplay from "../components/ProductsDisplay";
 import { useLocation } from "react-router-dom";
-import product5 from './assets/headphones-with-minimalist-monochrome-background-cropped-removebg-preview.png'
+import product5 from '../assets/headphones-with-minimalist-monochrome-background-cropped-removebg-preview.png'
 
 const Home = () => {
 
