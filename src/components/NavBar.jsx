@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { NavLink } from "react-router-dom";
+import logo from '../assets/GadgetStore.png'
 
 const NavBar = () => {
 
@@ -11,7 +12,7 @@ const NavBar = () => {
             className={mobileNavMenuClicked? "navbar flex items-start justify-between responsive-nav-parent" : "navbar flex items-start justify-between"
         }>
             <div>
-                <img src="src\assets\GadgetStore.png" alt="" />
+                <img src={logo} alt="" />
             </div>
 
             <div 

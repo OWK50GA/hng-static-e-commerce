@@ -42,7 +42,7 @@ const Home = () => {
                     </div>
                     <div className="home-welcome-sect-2 flex items-start -mt-16 -ml-16">
                         <img 
-                        src="src\assets\headphones-with-minimalist-monochrome-background-cropped-removebg-preview.png" 
+                        src="../assets/headphones-with-minimalist-monochrome-background-cropped-removebg-preview.png" 
                         className="headphone-img" 
                         alt=""
                         />
