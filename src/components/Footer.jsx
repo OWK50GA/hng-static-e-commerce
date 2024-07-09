@@ -28,20 +28,20 @@ const Footer = () => {
                             className="bg-sky-100 border-none rounded-md"
                         />
                         <button
-                            className="footer-btn bg-blue-600 text-white py-2 px-4 rounded-md font-bold"
+                            className="footer-btn bg-blue-600 text-white py-2 px-4 rounded-md font-bold hover:bg-blue-700"
                         >
-                            Shop Now
+                            <a href="#shop">Shop Now</a>
                         </button>
                     </div>
                 </form>
             </div>
 
             <div className="bottom-footer-details flex gap-8 mt-28">
-                <div className="flex flex-col gap-8 justify-center w-full lg:w-5/12">
+                <div className="flex flex-col gap-8 w-full lg:w-5/12">
                     <div>
                         <img src={logo} alt="" className=""/>
                     </div>
-                    <p className="get-gadgets-text lg:text-sm text-gray-500">
+                    <p className="get-gadgets-text lg:text-sm text-gray-500 w-7/12">
                         Get some awesome gadgets from us any day any time
                     </p>
                     <div className="flex gap-2">

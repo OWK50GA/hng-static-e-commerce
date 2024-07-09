@@ -1,6 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const OrderSummary = ({subtotal, tax, shipping, total}) => {
+
+    const location = useLocation()
+    const route = location.pathname;
+    
     return ( 
         <div className="order-summary w-8/12 mt-10">
             <div className="flex justify-between">
@@ -20,15 +24,23 @@ const OrderSummary = ({subtotal, tax, shipping, total}) => {
                     <p>TOTAL</p>
                     <p>&#x20A6;{total}</p>
             </div>
-            <button className="checkout-btn bg-blue-600 w-full text-white p-2 mt-2">
-                <Link to={{
+            <button className="checkout-btn bg-blue-600 w-full text-white p-2 mt-2 rounded-md">
+                {
+                    route == '/cart' &&
+                    <Link to={{
                     pathname: '/checkout',
-                    state: {
-                        // optional props
-                    }
-                }}>
-                    Proceed Checkout
-                </Link>
+                        }}>
+                            Proceed Checkout
+                    </Link>
+                }
+                {
+                    route == '/checkout' &&
+                    <Link to={{
+                    pathname: '/',
+                        }}>
+                            Proceed Checkout
+                    </Link>
+                }
             </button>
         </div>
      );
