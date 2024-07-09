@@ -149,7 +149,7 @@ div.products {
   p.home-welcome-sect-1-text {
     text-align: center;
     margin-top: 1rem;
-    width: 90%;
+    width: 65%;
     align-self: center;
     font-weight: 400;
   }
@@ -168,6 +168,11 @@ div.products {
   .product {
     border-radius: 5%;
     width: 40%;
+    margin: auto;
+  }
+
+  div.product-img-div, div.new-arrival-div {
+    width: 270px;
     margin: auto;
   }
 

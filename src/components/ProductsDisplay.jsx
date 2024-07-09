@@ -37,7 +37,7 @@ const ProductsDisplay = () => {
                 {
                     newArrivals.map((product) => (
                         <div className='bg-sky-100 rounded-xl'>
-                            <div className='w-80 h-80'>
+                            <div className='new-arrival-div w-80 h-80'>
                                 <img src={product.productImage} alt="" className='max-w-full max-h-full'/>
                             </div>
                             <div className='px-6 py-3 bg-white rounded-t-3xl mt-2'>
