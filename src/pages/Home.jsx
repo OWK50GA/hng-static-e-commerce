@@ -35,7 +35,7 @@ const Home = () => {
                             gadgets, we have it all.
                         </p>
                         <button 
-                            className="gotoShop items-center mt-3 py-4 px-8 bg-indigo-600 flex text-white justify-between gap-3"
+                            className="gotoShop items-center mt-3 py-4 px-8 bg-indigo-500 flex text-white justify-between gap-3"
                         >
                             <BsCart2/>
                             <a className="font-semibold text-sm" href="#shop">Shop Now</a>
