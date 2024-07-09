@@ -23,10 +23,10 @@ const Home = () => {
                         <p className="large-text text-6xl font-bold leading-relaxed">
                             the Future of
                         </p>
-                        <p className="large-text text-6xl text-indigo-600 font-bold leading-relaxed -mt-3">
+                        <p className="large-text text-6xl text-blue-600 font-bold leading-relaxed -mt-3">
                             Technology
                         </p>
-                        <p className="large-text text-6xl text-indigo-600 font-bold leading-relaxed -mt-3">
+                        <p className="large-text text-6xl text-blue-600 font-bold leading-relaxed -mt-3">
                             Today
                         </p>
                         <p className="home-welcome-sect-1-text mt-2 text-sm font-semibold">
@@ -35,7 +35,7 @@ const Home = () => {
                             gadgets, we have it all.
                         </p>
                         <button 
-                            className="gotoShop items-center mt-3 py-4 px-8 bg-indigo-500 flex text-white justify-between gap-3"
+                            className="gotoShop items-center mt-3 py-4 px-8 bg-blue-600 flex text-white justify-between gap-3"
                         >
                             <BsCart2/>
                             <a className="font-semibold text-sm" href="#shop">Shop Now</a>
