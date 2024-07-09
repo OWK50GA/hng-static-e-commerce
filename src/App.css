@@ -184,6 +184,11 @@ div.blue-root {
     margin: auto;
   }
 
+  /* div.product-img-div {
+    display: unset;
+    height: unset;
+  } */
+
   .products .product {
     width: unset;
   }

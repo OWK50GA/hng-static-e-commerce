@@ -3,7 +3,7 @@ import product2 from './assets/products/mouse-removebg-preview.png'
 import product3 from './assets/products/vision-pro.png'
 import product4 from './assets/products/phone.png'
 import product5 from './assets/headphones-with-minimalist-monochrome-background-cropped-removebg-preview.png'
-import product6 from './assets/products/iPhone-14-black.png'
+import product6 from './assets/products/iPhone-12-with-pouch.png'
 
 export const products = [
     {
@@ -38,7 +38,7 @@ export const products = [
     },
     {
         id: 6,
-        productName: 'Black iPhone 14 With LightPen',
+        productName: 'iPhone 12 With Pouch',
         price: 600000,
         productImage: product6,
     }
