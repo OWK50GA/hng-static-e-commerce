@@ -211,6 +211,16 @@ div.products {
   div.checkout-main-2 div.order-summary {
     width: 100%;
   }
+
+  div.order-summary-container {
+    width: 100%;
+    margin: 10% auto;
+  }
+
+  div.order-summary-container div.order-summary {
+    width: 80%;
+    margin: auto;
+  }
   
   .mobile-arrowhead {
     display: block;
