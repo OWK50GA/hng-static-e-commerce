@@ -6,18 +6,18 @@ const ProductsDisplay = () => {
         <div className='products mt-24' id='shop'>
             <div>
                 <h2 className='text-4xl font-bold text-center'>Explore Our Products</h2>
-                <div className='flex gap-20 flex-wrap justify-between mt-16'>
+                <div className='flex gap-y-20 flex-wrap justify-between mt-16'>
                 {
                     products.map((product) => (
-                        <div className='product bg-sky-100 w-fit'>
+                        <div className='product bg-sky-100 rounded-lg'>
                             <div className='product-img-div w-80 h-80'>
                                 <img src={product.productImage} alt="" className='max-w-full max-h-full'/>
                             </div>
                             <div className='px-6 py-3 bg-white rounded-t-3xl mt-2'>
-                                <p className='text-yellow-300 tracking-tighter'> 
+                                <p className='text-yellow-400 tracking-tighter'> 
                                     &#x2605; &#x2605; &#x2605; &#x2605; &#x2605;
                                 </p>
-                                <p className='text-xs'>{product.productName}</p>
+                                <p className='text-xs font-semibold'>{product.productName}</p>
                                 <div className='flex justify-between items-center'>
                                     <p className='font-semibold'>&#x20A6;{product.price}</p>
                                     <div className='text-white bg-black rounded-full px-1.5 w-fit'>
@@ -33,18 +33,18 @@ const ProductsDisplay = () => {
             
             <div className='new-arrivals-parent mt-24 pb-20'>
                 <h2 className='text-4xl font-bold text-center'>New Arrivals</h2>
-                <div className='new-arrivals flex gap-20 flex-wrap justify-between mt-8'>
+                <div className='new-arrivals flex gap-y-20 flex-wrap justify-between mt-8'>
                 {
                     newArrivals.map((product) => (
-                        <div className='bg-sky-100 rounded-xl'>
+                        <div className='product bg-sky-100 rounded-lg'>
                             <div className='new-arrival-div w-80 h-80'>
                                 <img src={product.productImage} alt="" className='max-w-full max-h-full'/>
                             </div>
                             <div className='px-6 py-3 bg-white rounded-t-3xl mt-2'>
-                                <p className='text-yellow-300 tracking-tighter'> 
+                                <p className='text-yellow-400 tracking-tighter'> 
                                     &#x2605; &#x2605; &#x2605; &#x2605; &#x2605;
                                 </p>
-                                <p className='text-xs'>{product.productName}</p>
+                                <p className='text-xs font-semibold'>{product.productName}</p>
                                 <div className='flex justify-between items-center'>
                                     <p className='font-semibold'>&#x20A6;{product.price}</p>
                                     <div className='text-white bg-black rounded-full px-1.5 w-fit'>

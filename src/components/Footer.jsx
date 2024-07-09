@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa6";
+import logo from '../assets/GadgetStore.png'
 
 const Footer = () => {
 
@@ -10,21 +11,21 @@ const Footer = () => {
 
     return ( 
         <div className="footer mt-6 pb-12">
-            <div className="md:w-88 m-auto">
+            <div className="news-letter md:w-88 m-auto">
                 <h2 
-                    className="text-blue-600 font-bold text-3xl w-fit m-auto mb-5"
+                    className="news-letter-title text-blue-600 font-bold text-3xl w-fit m-auto mb-5"
                 >
                     Newsletter
                 </h2>
                 <p className="font-semibold text-sm m-auto w-fit mb-3">Subscribe to get information about products and coupons</p>
                 <form action="">
                     <div 
-                        className="footer-form m-auto bg-sky-50 rounded-md flex justify-between lg:h-12"
+                        className="footer-form m-auto bg-sky-100 rounded-md flex justify-between lg:h-12"
                     >
                         <input 
                             type="email" 
                             placeholder="Email Address"
-                            className="bg-sky-50 border-none rounded-md"
+                            className="bg-sky-100 border-none rounded-md"
                         />
                         <button
                             className="footer-btn bg-blue-600 text-white py-2 px-4 rounded-md font-bold"
@@ -38,10 +39,10 @@ const Footer = () => {
             <div className="bottom-footer-details flex gap-8 mt-28">
                 <div className="flex flex-col gap-8 justify-center w-full lg:w-5/12">
                     <div>
-                        <img src="src\assets\GadgetStore.png" alt="" className=""/>
+                        <img src={logo} alt="" className=""/>
                     </div>
                     <p className="get-gadgets-text lg:text-sm text-gray-500">
-                        Get some awesome gadgets from us any <br /> day any time
+                        Get some awesome gadgets from us any day any time
                     </p>
                     <div className="flex gap-2">
                         <div className="bg-sky-100 w-10 h-10 items-center flex justify-center rounded-xl">

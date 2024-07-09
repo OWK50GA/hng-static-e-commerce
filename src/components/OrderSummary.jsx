@@ -20,7 +20,7 @@ const OrderSummary = ({subtotal, tax, shipping, total}) => {
                     <p>TOTAL</p>
                     <p>&#x20A6;{total}</p>
             </div>
-            <button className="bg-blue-600 w-full text-white p-2 rounded-md mt-2">
+            <button className="checkout-btn bg-blue-600 w-full text-white p-2 mt-2">
                 <Link to={{
                     pathname: '/checkout',
                     state: {
