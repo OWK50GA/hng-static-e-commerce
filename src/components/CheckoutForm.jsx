@@ -13,7 +13,7 @@ const CheckoutForm = () => {
                         name="firstname" 
                         id="firstname"
                         // placeholder="Dikko" 
-                        className="w-full"
+                        className="w-full rounded-md border-gray-400"
                     />
                 </div>
                 <div className="mt-3">
@@ -23,7 +23,7 @@ const CheckoutForm = () => {
                         name="lastname" 
                         id="lastname" 
                         // placeholder="Oladapo"
-                        className="w-full"
+                        className="w-full rounded-md border-gray-400"
                     />
                 </div>
                 <div className="mt-3">
@@ -33,7 +33,7 @@ const CheckoutForm = () => {
                         name="address" 
                         id="address" 
                         // placeholder="e.g King's Landing"
-                        className="w-full"
+                        className="w-full rounded-md border-gray-400"
                     />
                 </div>
                 <div className="mt-3">
@@ -43,7 +43,7 @@ const CheckoutForm = () => {
                         name="country" 
                         id="country" 
                         // placeholder="e.g Westeros"
-                        className="w-full"
+                        className="w-full rounded-md border-gray-400"
                     />
                 </div>
                 <div className="mt-3">
@@ -52,7 +52,7 @@ const CheckoutForm = () => {
                         type="text" 
                         name="townOrCity" 
                         id="townOrCity" 
-                        className="w-full"
+                        className="w-full rounded-md border-gray-400"
                     />
                 </div>
                 <div className="mt-3">
@@ -61,7 +61,7 @@ const CheckoutForm = () => {
                         type="number" 
                         name="aptNumber" 
                         id="aptNumber" 
-                        className="w-full"
+                        className="w-full rounded-md border-gray-400"
                     />
                 </div>
                 <div className="mt-10">
