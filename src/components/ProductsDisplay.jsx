@@ -1,7 +1,4 @@
-// import { products } from '../Products'
-import { newArrivals } from '../Products'
 import { useContext, useEffect, useState } from 'react'
-import axios  from 'axios'
 import Product from './Product'
 import { ProductsContext } from '../context/ProductsContext'
 import Pagination from './Pagination'
