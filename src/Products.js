@@ -60,4 +60,4 @@ const getRandomElements = (arr, count) => {
 }
 
 export const newArrivals = getRandomElements(products, 3)
-console.log(newArrivals)
+// console.log(newArrivals)
