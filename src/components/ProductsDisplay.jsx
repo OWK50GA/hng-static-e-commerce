@@ -13,6 +13,14 @@ const ProductsDisplay = () => {
     const firstPostIndex = lastPostIndex - postsPerPage;
     const currentPosts = products.slice(firstPostIndex, lastPostIndex);
 
+    const getRandomElements = (arr, count) => {
+        return arr.slice().sort(() => {
+            return 0.5 - Math.random();
+        }).slice(0, count);
+    }
+    
+    const newArrivals = getRandomElements(products, 6)
+
     return ( 
         <div className='products mt-24' id='shop'>
             <div>
@@ -38,27 +46,17 @@ const ProductsDisplay = () => {
                 <h2 className='text-4xl font-bold text-center'>New Arrivals</h2>
                 <div className='new-arrivals flex gap-y-20 flex-wrap justify-between mt-8'>
                 {
-                    newArrivals.map((product) => (
-                        <div className='product bg-sky-100 rounded-lg flex flex-col justify-between'>
-                            <div className='new-arrival-div w-80 h-80 flex md:block md:w-full md:h-auto
-                            lg:flex lg:w-80 lg:h-80
-                            '>
-                                <img src={product.productImage} alt="" className='max-w-full max-h-full'/>
-                            </div>
-                            <div className='px-6 py-3 bg-white rounded-t-3xl mt-auto h-fit'>
-                                <p className='text-yellow-400 tracking-tighter'> 
-                                    &#x2605; &#x2605; &#x2605; &#x2605; &#x2605;
-                                </p>
-                                <p className='text-xs font-semibold'>{product.productName}</p>
-                                <div className='flex justify-between items-center'>
-                                    <p className='font-semibold'>&#x20A6;{product.price}</p>
-                                    <div className='text-white bg-black rounded-full px-1.5 w-fit'>
-                                        +
-                                    </div>
-                                </div>
-                            </div>
-                        </div>    
-                    ))
+                    newArrivals.map((product) => {
+                        const ProductInfo = {
+                            name: product.name,
+                            quantity: product.available_quantity,
+                            price: product.current_price[0].NGN[0],
+                            numberOrdered: 0,
+                        }
+                        return (
+                            <Product data={product} ProductInfo={ProductInfo}/>
+                        )
+                    })
                 }
                 </div>
             </div>
