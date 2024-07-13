@@ -24,7 +24,28 @@ const OrderSummary = ({subtotal, tax, shipping, total}) => {
                     <p>TOTAL</p>
                     <p>&#x20A6;{total}</p>
             </div>
-            <button className="checkout-btn bg-blue-600 w-full text-white p-2 mt-2 rounded-md">
+            {
+                route == '/cart'?
+                <Link to={{
+                    pathname: '/checkout'
+                }}>
+                    <button className="checkout-btn bg-blue-600 w-full text-white p-2 mt-2 rounded-md">
+                        Proceed Checkout
+                    </button>
+                </Link>
+                :
+                <Link to={{
+                    pathname: '/'
+                }}>
+                    <button className="checkout-btn bg-blue-600 w-full text-white p-2 mt-2 rounded-md">
+                        Proceed Checkout
+                    </button>
+                </Link>
+            }
+            <Link>
+
+            </Link>
+            {/* <button className="checkout-btn bg-blue-600 w-full text-white p-2 mt-2 rounded-md">
                 {
                     route == '/cart' &&
                     <Link to={{
@@ -41,7 +62,7 @@ const OrderSummary = ({subtotal, tax, shipping, total}) => {
                             Proceed Checkout
                     </Link>
                 }
-            </button>
+            </button> */}
         </div>
      );
 }

@@ -1,8 +1,15 @@
+import { useContext } from 'react';
 import CartCard from '../components/CartCard';
 import OrderSummary from '../components/OrderSummary';
-import { products } from '../Products'
+// import { products } from '../Products'
+import { ShopContext } from '../context/ShopContext';
+import { ProductsContext } from '../context/ProductsContext';
 
 const Cart = () => {
+    const {addToCart, removeFromCart, cartItems, updateCartItemCount, getTotalCartAmount, removeItem, clearCart} = useContext(ShopContext)
+    const {products} = useContext(ProductsContext);
+    const totalAmount = getTotalCartAmount();
+
     return ( 
         <div className='cart mb-28'>
             <div className='flex items-center gap-1 text-3xl mb-8 mt-16'>
@@ -15,40 +22,83 @@ const Cart = () => {
                     <p className='col-span-1'>Quantity</p>
                     <p className='col-span-1'>Subtotal</p>
                 </div>
-                <div className='cart-card-container grid grid-cols-4 my-8 gap-4 items-center'>
-                    <div className='col-span-2 font-semibold'>
-                        <CartCard 
-                            productImage={products[3].productImage}
-                            productName={products[3].productName}
+                    {
+                        products.map((product) => {
+                            if (cartItems[product.unique_id] !== 0) {
+                                let productImage = `https://api.timbu.cloud/images/${product.photos[0]?.url}`
+                                let productName = product.name
+                                let uniqueId = product.unique_id;
+                                let productPrice = product.current_price[0].NGN[0]
+                                return (
+                                    <div>
+                                        <div className='cart-card-container grid grid-cols-4 my-8 gap-4 items-center'>
+                                        <div className='col-span-2 font-semibold'>
+                                        <CartCard 
+                                            productImage={productImage}
+                                            uniqueId={product.unique_id}
+                                            productName={productName}
+                                            removeItem={removeItem}
+                                        />
+                                        </div>
+                                        <p className='col-span-1 flex gap-1 items-center'>
+                                            <span className="p-2 border border-black cursor-pointer"
+                                                onClick={() => addToCart(product.unique_id)}
+                                            >
+                                                +
+                                            </span>
+                                            {/* <span className='px-3 py-2 border border-black'>
+                                                {cartItems[product.unique_id]}
+                                            </span> */}
+                                            <input 
+                                                type="text" 
+                                                value={cartItems[uniqueId]}
+                                                className="w-10"
+                                                onChange={(e) => updateCartItemCount(Number(e.target.value), uniqueId)}
+                                            />
+                                            <span className="p-2 border border-black cursor-pointer"
+                                                onClick={() => removeFromCart(product.unique_id)}
+                                            >
+                                                -
+                                            </span>
+                                        </p>
+                                        <p className='col-span-1 font-semibold md:font-bold'>&#x20A6;{cartItems[uniqueId] * productPrice}</p>
+                                        </div>
+                                        <hr />
+                                    </div>
+                                )
+                            }
+                        })
+                    }
+                    {
+                        totalAmount > 0?
+                        <button 
+                            className="checkout-btn bg-blue-600 w-full text-white p-2 mt-2 rounded-md"
+                            onClick={() => clearCart()}
+                        >
+                            Clear Cart
+                        </button>
+                        :
+                        null
+                    }
+                    
+            </div>
+            {
+                totalAmount > 0?
+                <div className='flex flex-col justify-end items-end mt-16 gap-0'>
+                    <h2 className='w-fit mx-auto md:mr-32 md:-mb-3 font-semibold'>Order Summary</h2>
+                    <div className='order-summary-container w-96 self-end flex justify-end font-semibold'>
+                        <OrderSummary 
+                            subtotal={totalAmount}
+                            tax={'00.00'}
+                            shipping={2000}
+                            total={totalAmount + 2000}
                         />
                     </div>
-                    <p className='col-span-1'>+<span className='text-gray-300'>1</span></p>
-                    <p className='col-span-1 font-semibold md:font-bold'>&#x20A6;45,000</p>
                 </div>
-                <hr />
-                <div className='cart-card-container grid grid-cols-4 my-8 gap-4 items-center'>
-                    <div className='col-span-2 font-semibold'>
-                        <CartCard 
-                            productImage={products[2].productImage}
-                            productName={products[2].productName}
-                        />
-                    </div>
-                    <p className='col-span-1'>+<span className='text-gray-300'>1</span></p>
-                    <p className='col-span-1 font-semibold md:font-bold'>&#x20A6;45,000</p>
-                </div>
-                <hr />
-            </div>
-            <div className='flex flex-col justify-end items-end mt-16 gap-0'>
-                <h2 className='w-fit mx-auto md:mr-32 md:-mb-3 font-semibold'>Order Summary</h2>
-                <div className='order-summary-container w-96 self-end flex justify-end font-semibold'>
-                    <OrderSummary 
-                        subtotal={'90000'}
-                        tax={'00.00'}
-                        shipping={'500'}
-                        total={'90,500'}
-                    />
-                </div>
-            </div>
+                :
+                <h1 className="text-3xl" >Your Cart is Empty</h1>
+            }
+            
         </div>
      );
 }

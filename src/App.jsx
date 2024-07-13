@@ -10,8 +10,28 @@ import Home from './pages/Home'
 import Cart from './pages/Cart'
 import HomeLayout from './HomeLayout'
 import Checkout from './pages/Checkout'
+import { useState, useEffect } from 'react'
+import { ProductsContext } from './context/ProductsContext'
+import ShopContextProvider, { ShopContext } from './context/ShopContext'
 
 function App() {
+
+  const [products, setProducts] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  const getProducts = () => {
+    fetch(`/api/products?organization_id=bc5b290b3e3a4d5d90426466523defa5&reverse_sort=false&Appid=6HVJ5A7MUNX2B2K&Apikey=70c333f3d3f64b32a9a03d81fe2e183e20240713081007078314`)
+    .then(res => res.json())
+        .then((data) => {
+            setProducts(data.items)
+            setLoading(false)
+        })
+        // .then(console.log(products))
+}
+
+    useEffect(() => {
+        getProducts();
+    }, [loading])
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -25,11 +45,15 @@ function App() {
     )
   )
 
-  return (
+  return (!loading)?(
     <div>
-      <RouterProvider router={router}/>
+      <ProductsContext.Provider value={{products, loading}}>
+        <ShopContextProvider>
+          <RouterProvider router={router}/>
+        </ShopContextProvider>
+      </ProductsContext.Provider>
     </div>
-  )
+  ):null
 }
 
 export default App
