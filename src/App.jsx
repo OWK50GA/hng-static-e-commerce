@@ -26,6 +26,7 @@ function App() {
             setProducts(data.items)
             setLoading(false)
         })
+        .catch((error) => console.error(error))
         // .then(console.log(products))
 }
 

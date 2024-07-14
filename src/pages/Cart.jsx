@@ -55,7 +55,7 @@ const Cart = () => {
                                                 className="w-9 h-9 text=xs"
                                                 onChange={(e) => updateCartItemCount(Number(e.target.value), uniqueId)}
                                             />
-                                            <span className=",d:p-2 border border-black cursor-pointer"
+                                            <span className="md:p-2 border border-black cursor-pointer"
                                                 onClick={() => removeFromCart(product.unique_id)}
                                             >
                                                 -
