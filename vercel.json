@@ -1,8 +1,8 @@
 {
     "rewrites": [
       {
-        "source": "/api",
-        "destination": "https://api.timbu.cloud"
+        "source": "/api/(.*)",
+        "destination": "https://api.timbu.cloud/$1"
       }
     ]
-}
+  }
