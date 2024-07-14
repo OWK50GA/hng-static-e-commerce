@@ -299,4 +299,8 @@ div.blue-root {
   .cart-card-container > p {
     margin-left: -0.4rem;
   }
+
+  .cart-btns {
+    flex-basis: 100%;
+  }
 }

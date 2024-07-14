@@ -13,7 +13,7 @@ import Checkout from './pages/Checkout'
 import { useState, useEffect } from 'react'
 import { ProductsContext } from './context/ProductsContext'
 import ShopContextProvider, { ShopContext } from './context/ShopContext'
-import ProductDetails, { productDetailsLoader } from './components/ProductDetails'
+import ProductDetails from './components/ProductDetails'
 
 function App() {
 
@@ -44,7 +44,6 @@ function App() {
             <Route 
               path=':id'
               element={<ProductDetails />}
-              loader={productDetailsLoader}
             />
           </Route>
         </Route>

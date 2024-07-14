@@ -31,7 +31,7 @@ const Cart = () => {
                                 let uniqueId = product.unique_id;
                                 let productPrice = product.current_price[0].NGN[0]
                                 return (
-                                    <div>
+                                    <div className='flex flex-col'>
                                         <div className='cart-card-container grid grid-cols-4 my-8 gap-4 items-center'>
                                         <div className='col-span-2 font-semibold'>
                                         <Link to={`${product.id}`}>
@@ -43,8 +43,8 @@ const Cart = () => {
                                             />
                                         </Link>
                                         </div>
-                                        <p className='col-span-1flex text-xs md:gap-1 gap-0 items-center md:text-base'>
-                                            <span className="p-2 border border-black cursor-pointer"
+                                        <p className='crt-btns col-span-1 flex text-xs md:gap-1 gap-0 items-center md:text-base'>
+                                            <span className="py-2 border border-black cursor-pointer"
                                                 onClick={() => addToCart(product.unique_id)}
                                             >
                                                 +
@@ -58,7 +58,7 @@ const Cart = () => {
                                                 className="w-9 h-9 text=xs"
                                                 onChange={(e) => updateCartItemCount(Number(e.target.value), uniqueId)}
                                             />
-                                            <span className="p-2 border border-black cursor-pointer"
+                                            <span className="py-2 border border-black cursor-pointer"
                                                 onClick={() => removeFromCart(product.unique_id)}
                                             >
                                                 -
