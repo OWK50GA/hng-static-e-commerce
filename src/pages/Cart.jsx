@@ -4,6 +4,7 @@ import OrderSummary from '../components/OrderSummary';
 // import { products } from '../Products'
 import { ShopContext } from '../context/ShopContext';
 import { ProductsContext } from '../context/ProductsContext';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
     const {addToCart, removeFromCart, cartItems, updateCartItemCount, getTotalCartAmount, removeItem, clearCart} = useContext(ShopContext)
@@ -33,15 +34,17 @@ const Cart = () => {
                                     <div>
                                         <div className='cart-card-container grid grid-cols-4 my-8 gap-4 items-center'>
                                         <div className='col-span-2 font-semibold'>
-                                        <CartCard 
-                                            productImage={productImage}
-                                            uniqueId={product.unique_id}
-                                            productName={productName}
-                                            removeItem={removeItem}
-                                        />
+                                        <Link to={`${product.id}`}>
+                                            <CartCard 
+                                                productImage={productImage}
+                                                uniqueId={product.unique_id}
+                                                productName={productName}
+                                                removeItem={removeItem}
+                                            />
+                                        </Link>
                                         </div>
-                                        <p className='col-span-1 md:flex-row flex flex-col text-xs md:gap-1 gap-0 items-center md:text-base'>
-                                            <span className="md:p-2 border border-black cursor-pointer"
+                                        <p className='col-span-1flex text-xs md:gap-1 gap-0 items-center md:text-base'>
+                                            <span className="p-2 border border-black cursor-pointer"
                                                 onClick={() => addToCart(product.unique_id)}
                                             >
                                                 +
@@ -55,7 +58,7 @@ const Cart = () => {
                                                 className="w-9 h-9 text=xs"
                                                 onChange={(e) => updateCartItemCount(Number(e.target.value), uniqueId)}
                                             />
-                                            <span className="md:p-2 border border-black cursor-pointer"
+                                            <span className="p-2 border border-black cursor-pointer"
                                                 onClick={() => removeFromCart(product.unique_id)}
                                             >
                                                 -

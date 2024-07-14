@@ -7,10 +7,6 @@ const RootLayout = () => {
 
     const location = useLocation();
     const route = location.pathname;
-    
-    useEffect(() => {
-        console.log(route)
-    }, [route])
 
     return ( 
         <div className={route == "/"? "blue-root h-full -mt-8 py-8" : "root"}>

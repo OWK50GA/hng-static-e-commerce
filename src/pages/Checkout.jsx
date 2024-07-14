@@ -1,7 +1,13 @@
+import { useContext } from "react";
 import CheckoutForm from "../components/CheckoutForm";
 import OrderSummary from "../components/OrderSummary";
+import { ShopContext } from "../context/ShopContext";
 
 const Checkout = () => {
+
+    const { getTotalCartAmount } = useContext(ShopContext);
+    let totalAmount = getTotalCartAmount();
+
     return ( 
         <div className="mt-12 mb-24">
             <div className="flex gap-3 items-center text-lg">
@@ -18,10 +24,10 @@ const Checkout = () => {
                 <div className="checkout-main-2 w-5/12 font-semibold mt-11 mr-12">
                     <h2 className="">Order Summary</h2>
                     <OrderSummary 
-                        subtotal={'90000'}
+                        subtotal={totalAmount}
                         tax={'00.00'}
-                        shipping={'500'}
-                        total={'90,500'}
+                        shipping={500}
+                        total={totalAmount + 500}
                     />
                 </div>
             </div>

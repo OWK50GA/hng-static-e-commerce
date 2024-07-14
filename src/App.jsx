@@ -13,6 +13,7 @@ import Checkout from './pages/Checkout'
 import { useState, useEffect } from 'react'
 import { ProductsContext } from './context/ProductsContext'
 import ShopContextProvider, { ShopContext } from './context/ShopContext'
+import ProductDetails, { productDetailsLoader } from './components/ProductDetails'
 
 function App() {
 
@@ -39,7 +40,13 @@ function App() {
       <Route element={<RootLayout />}>
         <Route element={<HomeLayout />}>
           <Route index element={<Home />}/>
-          <Route path='cart' element={<Cart />}/>
+          <Route path='cart' element={<Cart />}>
+            <Route 
+              path=':id'
+              element={<ProductDetails />}
+              loader={productDetailsLoader}
+            />
+          </Route>
         </Route>
         <Route path='checkout' element={<Checkout />}/>
       </Route>
