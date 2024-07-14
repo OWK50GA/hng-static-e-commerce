@@ -40,8 +40,8 @@ const Cart = () => {
                                             removeItem={removeItem}
                                         />
                                         </div>
-                                        <p className='col-span-1 flex gap-1 items-center'>
-                                            <span className="p-2 border border-black cursor-pointer"
+                                        <p className='col-span-1 md:flex-row flex flex-col text-xs md:gap-1 gap-0 items-center md:text-base'>
+                                            <span className="md:p-2 border border-black cursor-pointer"
                                                 onClick={() => addToCart(product.unique_id)}
                                             >
                                                 +
@@ -52,10 +52,10 @@ const Cart = () => {
                                             <input 
                                                 type="text" 
                                                 value={cartItems[uniqueId]}
-                                                className="w-10"
+                                                className="w-9 h-9 text=xs"
                                                 onChange={(e) => updateCartItemCount(Number(e.target.value), uniqueId)}
                                             />
-                                            <span className="p-2 border border-black cursor-pointer"
+                                            <span className=",d:p-2 border border-black cursor-pointer"
                                                 onClick={() => removeFromCart(product.unique_id)}
                                             >
                                                 -
