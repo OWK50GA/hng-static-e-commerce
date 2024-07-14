@@ -43,7 +43,7 @@ const Cart = () => {
                                             />
                                         </Link>
                                         </div>
-                                        <p className='crt-btns col-span-1 flex text-xs md:gap-1 gap-0 items-center md:text-base'>
+                                        <p className='cart-btns col-span-1 flex text-xs md:gap-1 gap-0 items-center md:text-base'>
                                             <span className="py-2 border border-black cursor-pointer"
                                                 onClick={() => addToCart(product.unique_id)}
                                             >

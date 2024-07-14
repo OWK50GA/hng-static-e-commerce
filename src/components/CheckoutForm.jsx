@@ -5,10 +5,10 @@ const CheckoutForm = () => {
 
     const validationSchema = Yup.object({
         firstname: Yup.string().required('Required'),
-        lastname: Yup.number().required('Required'),
-        address: Yup.number().required('Required'),
-        country: Yup.number().required('Required'),
-        townOrCity: Yup.number().required('Required'),
+        lastname: Yup.string().required('Required'),
+        address: Yup.string().required('Required'),
+        country: Yup.string().required('Required'),
+        townOrCity: Yup.string().required('Required'),
         aptNumber: Yup.number().required('Required'),
     })
 
