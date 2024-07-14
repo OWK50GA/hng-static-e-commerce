@@ -1,12 +1,19 @@
+import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import { ShopContext } from "../context/ShopContext";
 
 const OrderSummary = ({subtotal, tax, shipping, total}) => {
 
     const location = useLocation()
     const route = location.pathname;
+
+    const notify = () => toast("Checkout Processing")
+    const { clearCart } = useContext(ShopContext)
     
     return ( 
         <div className="order-summary w-8/12 mt-10">
+            <ToastContainer />
             <div className="flex justify-between">
                 <div className="flex flex-col gap-4">
                     <p>SUBTOTAL: </p>
@@ -34,11 +41,18 @@ const OrderSummary = ({subtotal, tax, shipping, total}) => {
                     </button>
                 </Link>
                 :
-                <Link to={{
-                    pathname: '/'
-                }}>
-                    <button className="checkout-btn bg-blue-600 w-full text-white p-2 mt-2 rounded-md">
-                        Proceed Checkout
+                <Link 
+                    to={{
+                        pathname: '/'
+                    }}
+                    onClick={() => {
+                        clearCart();
+                    }}
+                >
+                    <button 
+                        className="checkout-btn bg-blue-600 w-full text-white p-2 mt-2 rounded-md"
+                    >
+                        Checkout
                     </button>
                 </Link>
             }

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CheckoutForm from "../components/CheckoutForm";
 import OrderSummary from "../components/OrderSummary";
 import { ShopContext } from "../context/ShopContext";
@@ -7,6 +7,7 @@ const Checkout = () => {
 
     const { getTotalCartAmount } = useContext(ShopContext);
     let totalAmount = getTotalCartAmount();
+    const [checkoutFormValid, setCheckoutFormValid] = useState(false)
 
     return ( 
         <div className="mt-12 mb-24">
@@ -19,7 +20,7 @@ const Checkout = () => {
             </div>
             <div className="checkout-main flex justify-between">
                 <div className="checkout-main-1 w-5/12">
-                    <CheckoutForm />
+                    <CheckoutForm checkoutFormValid={checkoutFormValid} setCheckoutFormValid={setCheckoutFormValid}/>
                 </div>
                 <div className="checkout-main-2 w-5/12 font-semibold mt-11 mr-12">
                     <h2 className="">Order Summary</h2>
@@ -28,6 +29,7 @@ const Checkout = () => {
                         tax={'00.00'}
                         shipping={500}
                         total={totalAmount + 500}
+                        checkoutFormValid={checkoutFormValid}
                     />
                 </div>
             </div>

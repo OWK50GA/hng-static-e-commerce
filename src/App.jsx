@@ -41,11 +41,11 @@ function App() {
         <Route element={<HomeLayout />}>
           <Route index element={<Home />}/>
           <Route path='cart' element={<Cart />}>
-            <Route 
+          </Route>
+          <Route 
               path=':id'
               element={<ProductDetails />}
-            />
-          </Route>
+          />
         </Route>
         <Route path='checkout' element={<Checkout />}/>
       </Route>

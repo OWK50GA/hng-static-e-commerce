@@ -13,10 +13,14 @@ const Cart = () => {
 
     return ( 
         <div className='cart mb-28'>
-            <div className='flex items-center gap-1 text-3xl mb-8 mt-16'>
-                <p>&#x2039;</p>
-                <h2 className='font-bold'>Cart</h2>
-            </div>
+            <Link to={{
+                pathname: '/'
+            }}>
+                <div className='flex items-center gap-1 text-3xl mb-8 mt-16'>
+                    <p>&#x2039;</p>
+                    <h2 className='font-bold'>Cart</h2>
+                </div>
+            </Link>
             <div className='md:p-4 m-auto'>
                 <div className='hidden md:grid grid-cols-4 gap-4 font-semibold'>
                     <p className='col-span-2'>Product</p>
@@ -34,7 +38,9 @@ const Cart = () => {
                                     <div className='flex flex-col'>
                                         <div className='cart-card-container grid grid-cols-4 my-8 gap-4 items-center'>
                                         <div className='col-span-2 font-semibold'>
-                                        <Link to={`${product.id}`}>
+                                        <Link to={{
+                                            pathname: `/${product.id}`
+                                        }}>
                                             <CartCard 
                                                 productImage={productImage}
                                                 uniqueId={product.unique_id}
@@ -44,7 +50,7 @@ const Cart = () => {
                                         </Link>
                                         </div>
                                         <p className='cart-btns col-span-1 flex text-xs md:gap-1 gap-0 items-center md:text-base'>
-                                            <span className="py-2 border border-black cursor-pointer"
+                                            <span className="py-2 border md:py-1 md:px-2 border-black cursor-pointer"
                                                 onClick={() => addToCart(product.unique_id)}
                                             >
                                                 +
@@ -58,7 +64,7 @@ const Cart = () => {
                                                 className="w-9 h-9 text=xs"
                                                 onChange={(e) => updateCartItemCount(Number(e.target.value), uniqueId)}
                                             />
-                                            <span className="py-2 border border-black cursor-pointer"
+                                            <span className="py-2 md:py-1 md:px-2 border border-black cursor-pointer"
                                                 onClick={() => removeFromCart(product.unique_id)}
                                             >
                                                 -
@@ -75,7 +81,7 @@ const Cart = () => {
                     {
                         totalAmount > 0?
                         <button 
-                            className="checkout-btn bg-blue-600 w-full text-white p-2 mt-2 rounded-md"
+                            className='float-right text-gray-400 mt-4 underline'
                             onClick={() => clearCart()}
                         >
                             Clear Cart
