@@ -37,16 +37,13 @@ const Cart = () => {
                                     <div className='flex flex-col'>
                                         <div className='cart-card-container grid grid-cols-4 my-8 gap-4 items-center'>
                                         <div className='col-span-2 font-semibold'>
-                                        <Link to={{
-                                            pathname: `/${product.id}`
-                                        }}>
                                             <CartCard 
                                                 productImage={productImage}
                                                 uniqueId={product.unique_id}
                                                 productName={productName}
                                                 removeItem={removeItem}
+                                                product={product}
                                             />
-                                        </Link>
                                         </div>
                                         <p className='cart-btns col-span-1 flex text-xs md:gap-3 gap-0 items-center md:text-base py-2'>
                                             <span className="text-gray-400 py-2 underline decoration-2 cursor-pointer -ml-2 mr-2"
