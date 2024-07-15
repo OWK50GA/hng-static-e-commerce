@@ -11,7 +11,6 @@ const RootLayout = () => {
     return ( 
         <div className={route == "/"? "blue-root h-full -mt-8 py-8" : "root"}>
             <div className="w-4/5 mx-auto mt-7">
-            {/* <NavBar /> */}
 
             <Outlet />
 

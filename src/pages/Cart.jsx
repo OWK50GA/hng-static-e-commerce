@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import CartCard from '../components/CartCard';
 import OrderSummary from '../components/OrderSummary';
-// import { products } from '../Products'
 import { ShopContext } from '../context/ShopContext';
 import { ProductsContext } from '../context/ProductsContext';
 import { Link } from 'react-router-dom';

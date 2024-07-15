@@ -28,7 +28,6 @@ function App() {
             setLoading(false)
         })
         .catch((error) => console.error(error))
-        // .then(console.log(products))
 }
 
     useEffect(() => {

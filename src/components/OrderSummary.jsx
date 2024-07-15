@@ -1,19 +1,23 @@
 import { useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 
-const OrderSummary = ({subtotal, tax, shipping, total}) => {
+const OrderSummary = ({subtotal, tax, shipping, total, checkoutFormValid, notify}) => {
 
     const location = useLocation()
     const route = location.pathname;
-
-    const notify = () => toast("Checkout Processing")
     const { clearCart } = useContext(ShopContext)
+    const navigate = useNavigate();
+
+    const processPayment = () => {
+        setTimeout(() => {
+            clearCart();
+            navigate('/')
+        }, 4000)
+    }
     
     return ( 
         <div className="order-summary w-8/12 mt-10">
-            <ToastContainer />
             <div className="flex justify-between">
                 <div className="flex flex-col gap-4">
                     <p>SUBTOTAL: </p>
@@ -41,42 +45,18 @@ const OrderSummary = ({subtotal, tax, shipping, total}) => {
                     </button>
                 </Link>
                 :
-                <Link 
-                    to={{
-                        pathname: '/'
-                    }}
+                <button 
+                    className="checkout-btn bg-blue-600 w-full text-white p-2 mt-2 rounded-md"
+                    disabled={!checkoutFormValid}
                     onClick={() => {
-                        clearCart();
+                        notify();
+                        processPayment();
                     }}
                 >
-                    <button 
-                        className="checkout-btn bg-blue-600 w-full text-white p-2 mt-2 rounded-md"
-                    >
-                        Checkout
-                    </button>
-                </Link>
+                    Checkout
+                </button>
+            
             }
-            <Link>
-
-            </Link>
-            {/* <button className="checkout-btn bg-blue-600 w-full text-white p-2 mt-2 rounded-md">
-                {
-                    route == '/cart' &&
-                    <Link to={{
-                    pathname: '/checkout',
-                        }}>
-                            Proceed Checkout
-                    </Link>
-                }
-                {
-                    route == '/checkout' &&
-                    <Link to={{
-                    pathname: '/',
-                        }}>
-                            Proceed Checkout
-                    </Link>
-                }
-            </button> */}
         </div>
      );
 }

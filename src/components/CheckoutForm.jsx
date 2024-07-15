@@ -1,10 +1,14 @@
 import { useFormik, validateYupSchema } from "formik";
+import { useState } from "react";
 import * as Yup from 'yup';
 
-const CheckoutForm = () => {
+const CheckoutForm = ({setCheckoutFormValid}) => {
+
+    const options = ['Pay on Delivery', 'Bank Transfer', 'Card Payment']
+    const [currentOption, setCurrentOption] = useState(options[0])
 
     const validationSchema = Yup.object({
-        firstname: Yup.string().required('Required'),
+        fullname: Yup.string().required('Required'),
         lastname: Yup.string().required('Required'),
         address: Yup.string().required('Required'),
         country: Yup.string().required('Required'),
@@ -14,7 +18,7 @@ const CheckoutForm = () => {
 
     const formik = useFormik({
         initialValues: {
-            firstname: '',
+            fullname: '',
             lastname: '',
             address: '',
             country: '',
@@ -23,6 +27,7 @@ const CheckoutForm = () => {
         },
         onSubmit: (values) => {
             console.log(values)
+            setCheckoutFormValid(true)
             formik.resetForm();
         },
         validationSchema,
@@ -36,11 +41,11 @@ const CheckoutForm = () => {
                 onSubmit={formik.handleSubmit}
             >
                 <div className="mt-3">
-                    <label htmlFor="firstname" className="block font-semibold">First Name</label>
+                    <label htmlFor="fullname" className="block font-semibold">Full Name</label>
                     <input 
                         type="text" 
-                        name="firstname" 
-                        id="firstname"
+                        name="fullname" 
+                        id="fullname"
                         placeholder="Dikko" 
                         className="w-full rounded-md border-gray-400"
                         onChange={formik.handleChange}
@@ -146,6 +151,22 @@ const CheckoutForm = () => {
                         :
                         null
                     }
+                </div>
+                <div>
+                    <label htmlFor="payment-method" className="block font-semibold">Select Payment Method</label>
+                    <select 
+                        name="payment-method" 
+                        id=""
+                        onChange={(e) => setCurrentOption(e.target.value)}
+                    >
+                        {
+                            options.map((option) => {
+                                return (
+                                    <option value={option}>{option}</option>
+                                )
+                            })
+                        }
+                    </select>
                 </div>
                 <div className="mt-10">
                     <button type="submit" className="w-full bg-blue-600 text-white p-3 rounded-md">

@@ -43,7 +43,6 @@ const ShopContextProvider = (props) => {
     const clearCart = () => setCartItems(cart)
 
     const shopContextValue = { cartItems, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, removeItem, clearCart };
-    // console.log(cartItems)
 
     return ( 
         <ShopContext.Provider value={shopContextValue}>
