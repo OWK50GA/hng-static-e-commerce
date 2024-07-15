@@ -4,6 +4,7 @@ import OrderSummary from "../components/OrderSummary";
 import { ShopContext } from "../context/ShopContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom'
 
 const Checkout = () => {
 
@@ -14,6 +15,14 @@ const Checkout = () => {
 
     return ( 
         <div className="mt-12 mb-24">
+            <Link to={{
+                pathname: '/'
+            }}>
+                <div className='flex items-center gap-1 text-3xl mb-8 mt-16'>
+                    <p>&#x2039;</p>
+                    <h2 className='font-bold'>Continue Shopping</h2>
+                </div>
+            </Link>
             <ToastContainer />
             <div className="flex gap-3 items-center text-lg">
                 <div className="bg-white rounded-full w-8 h-8 border border-neutral-500 flex justify-center items-center">
