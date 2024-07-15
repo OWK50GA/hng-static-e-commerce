@@ -48,8 +48,8 @@ const Cart = () => {
                                             />
                                         </Link>
                                         </div>
-                                        <p className='cart-btns col-span-1 flex text-xs md:gap-3 gap-0 items-center md:text-base'>
-                                            <span className="py-2 text-gray-400 underline decoration-2 cursor-pointer"
+                                        <p className='cart-btns col-span-1 flex text-xs md:gap-3 gap-0 items-center md:text-base py-2'>
+                                            <span className="text-gray-400 py-2 underline decoration-2 cursor-pointer -ml-2 mr-2"
                                                 onClick={() => addToCart(product.unique_id)}
                                             >
                                                 +
@@ -60,10 +60,10 @@ const Cart = () => {
                                             <input 
                                                 type="text" 
                                                 value={cartItems[uniqueId]}
-                                                className="max-w-11 w-fit text-center h-9 text=xs rounded-lg border-gray-300"
+                                                className="max-w-10 w-fit text-center h-9 text=xs rounded-lg border-gray-300"
                                                 onChange={(e) => updateCartItemCount(Number(e.target.value), uniqueId)}
                                             />
-                                            <span className="py-2 text-gray-400 underline cursor-pointer decoration-[2px]"
+                                            <span className="text-gray-400 py-2 underline cursor-pointer decoration-[2px]"
                                                 onClick={() => removeFromCart(product.unique_id)}
                                             >
                                                 -
