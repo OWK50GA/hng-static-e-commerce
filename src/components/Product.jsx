@@ -5,6 +5,7 @@ const Product = (props) => {
 
     const product = props.data
     const uniqueId = product.unique_id;
+    const cartNotify = props.cartNotify
     const { addToCart, cartItems } = useContext(ShopContext)
     
     return ( 
@@ -29,7 +30,10 @@ const Product = (props) => {
                     <p className='font-semibold'>&#x20A6;{product.current_price[0].NGN[0]}</p>
                     <div 
                         className='text-white bg-black rounded-full px-1.5 w-fit cursor-pointer'
-                        onClick={() => addToCart(product.unique_id)}
+                        onClick={() => {
+                            addToCart(product.unique_id)
+                            cartNotify();
+                        }}
                     >
                         +
                     </div>
