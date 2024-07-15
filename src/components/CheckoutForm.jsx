@@ -9,7 +9,6 @@ const CheckoutForm = ({setCheckoutFormValid}) => {
 
     const validationSchema = Yup.object({
         fullname: Yup.string().required('Required'),
-        lastname: Yup.string().required('Required'),
         address: Yup.string().required('Required'),
         country: Yup.string().required('Required'),
         townOrCity: Yup.string().required('Required'),
@@ -19,7 +18,6 @@ const CheckoutForm = ({setCheckoutFormValid}) => {
     const formik = useFormik({
         initialValues: {
             fullname: '',
-            lastname: '',
             address: '',
             country: '',
             townOrCity: '',
@@ -59,7 +57,7 @@ const CheckoutForm = ({setCheckoutFormValid}) => {
                         null
                     }
                 </div>
-                <div className="mt-3">
+                {/* <div className="mt-3">
                     <label htmlFor="lastname" className="block font-semibold">Last Name</label>
                     <input 
                         type="text" 
@@ -77,7 +75,7 @@ const CheckoutForm = ({setCheckoutFormValid}) => {
                         :
                         null
                     }
-                </div>
+                </div> */}
                 <div className="mt-3">
                     <label htmlFor="address" className="block font-semibold">Street Address</label>
                     <input 
