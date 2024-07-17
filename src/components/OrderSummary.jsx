@@ -46,7 +46,11 @@ const OrderSummary = ({subtotal, tax, shipping, total, checkoutFormValid, notify
                 </Link>
                 :
                 <button 
-                    className="checkout-btn bg-blue-600 w-full text-white p-2 mt-2 rounded-md"
+                    className={!checkoutFormValid?
+                         "checkout-btn bg-gray-400 w-full text-white p-2 mt-2 rounded-md"
+                         :
+                         "checkout-btn bg-blue-600 w-full text-white p-2 mt-2 rounded-md"
+                        }
                     disabled={!checkoutFormValid}
                     onClick={() => {
                         notify();

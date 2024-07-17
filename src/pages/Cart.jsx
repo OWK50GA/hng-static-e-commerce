@@ -4,6 +4,7 @@ import OrderSummary from '../components/OrderSummary';
 import { ShopContext } from '../context/ShopContext';
 import { ProductsContext } from '../context/ProductsContext';
 import { Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 const Cart = () => {
     const {addToCart, removeFromCart, cartItems, updateCartItemCount, getTotalCartAmount, removeItem, clearCart} = useContext(ShopContext)
@@ -12,6 +13,7 @@ const Cart = () => {
 
     return ( 
         <div className='cart mb-28'>
+            <ToastContainer />
             <Link to={{
                 pathname: '/'
             }}>
@@ -47,7 +49,15 @@ const Cart = () => {
                                         </div>
                                         <p className='cart-btns col-span-1 flex text-xs md:gap-3 gap-0 items-center md:text-base py-2'>
                                             <span className="text-gray-400 py-2 underline decoration-2 cursor-pointer -ml-2 mr-2"
-                                                onClick={() => addToCart(product.unique_id)}
+                                                onClick={() => {
+                                                    if (cartItems[product.unique_id] < product.available_quantity) {
+                                                        addToCart(product.unique_id)
+                                                        cartNotify();
+                                                    }
+                                                    else {
+                                                        cartNegativeNotify();
+                                                    }
+                                                }}
                                             >
                                                 +
                                             </span>
@@ -55,9 +65,10 @@ const Cart = () => {
                                                 {cartItems[product.unique_id]}
                                             </span> */}
                                             <input 
-                                                type="text" 
+                                                type="number"
+                                                max={product.available_quantity} 
                                                 value={cartItems[uniqueId]}
-                                                className="max-w-10 w-fit text-center h-9 text=xs rounded-lg border-gray-300"
+                                                className="w-10 md:w-16 text-center h-9 text=xs rounded-lg border-gray-300"
                                                 onChange={(e) => updateCartItemCount(Number(e.target.value), uniqueId)}
                                             />
                                             <span className="text-gray-400 py-2 underline cursor-pointer decoration-[2px]"

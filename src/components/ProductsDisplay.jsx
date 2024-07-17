@@ -40,8 +40,9 @@ const ProductsDisplay = () => {
                             numberOrdered: 0,
                         }
                         const cartNotify = () => toast(`Added ${cartItems[product.unique_id] + 1} ${product.name} to cart`)
+                        const cartNegativeNotify  = () => toast('Out of Stock')
                         return (
-                            <Product data={product} ProductInfo={ProductInfo} cartNotify={cartNotify}/>)    
+                            <Product data={product} ProductInfo={ProductInfo} cartNotify={cartNotify} cartNegativeNotify={cartNegativeNotify}/>)    
                     })
                 }
                 </div>

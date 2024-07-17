@@ -7,6 +7,7 @@ const Product = (props) => {
     const product = props.data
     const uniqueId = product.unique_id;
     const cartNotify = props.cartNotify
+    const cartNegativeNotify = props.cartNegativeNotify
     const { addToCart, cartItems } = useContext(ShopContext)
     
     return ( 
@@ -36,8 +37,13 @@ const Product = (props) => {
                     <div 
                         className='text-white bg-black rounded-full px-1.5 w-fit cursor-pointer'
                         onClick={() => {
-                            addToCart(product.unique_id)
-                            cartNotify();
+                            if (cartItems[product.unique_id] < product.available_quantity) {
+                                addToCart(product.unique_id)
+                                cartNotify();
+                            }
+                            else {
+                                cartNegativeNotify();
+                            }
                         }}
                     >
                         +

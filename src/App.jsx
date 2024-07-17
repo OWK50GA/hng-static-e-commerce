@@ -10,7 +10,7 @@ import Home from './pages/Home'
 import Cart from './pages/Cart'
 import HomeLayout from './HomeLayout'
 import Checkout from './pages/Checkout'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { ProductsContext } from './context/ProductsContext'
 import ShopContextProvider, { ShopContext } from './context/ShopContext'
 import ProductDetails from './components/ProductDetails'
@@ -54,7 +54,7 @@ function App() {
   return (!loading)?(
     <div>
       <ProductsContext.Provider value={{products, loading}}>
-        <ShopContextProvider>
+        <ShopContextProvider value={ShopContext}>
           <RouterProvider router={router}/>
         </ShopContextProvider>
       </ProductsContext.Provider>
