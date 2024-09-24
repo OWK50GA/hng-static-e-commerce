@@ -42,7 +42,7 @@ const ProductsDisplay = () => {
                         const cartNotify = () => toast(`Added ${cartItems[product.unique_id] + 1} ${product.name} to cart`)
                         const cartNegativeNotify  = () => toast('Out of Stock')
                         return (
-                            <Product data={product} ProductInfo={ProductInfo} cartNotify={cartNotify} cartNegativeNotify={cartNegativeNotify}/>)    
+                            <Product key={index} data={product} ProductInfo={ProductInfo} cartNotify={cartNotify} cartNegativeNotify={cartNegativeNotify}/>)    
                     })
                 }
                 </div>
@@ -61,7 +61,7 @@ const ProductsDisplay = () => {
                             numberOrdered: 0,
                         }
                         return (
-                            <Product data={product} ProductInfo={ProductInfo}/>
+                            <Product key={ProductInfo.name} data={product} ProductInfo={ProductInfo}/>
                         )
                     })
                 }
